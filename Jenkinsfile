@@ -10,12 +10,11 @@ pipeline {
                sh 'docker ps'
             }
         }
-    }
-    stages {
-            stage('Sonarqube Analysis') {
+        stage('Sonarqube Analysis') {
                 steps {
                    echo 'sonar analysis'
                 }
             }
         }
+    }
 }
