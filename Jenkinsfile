@@ -31,7 +31,7 @@ pipeline {
                 branch "master"
             }
             steps {
-               echo "test case"
+               sh 'mvn test'
             }
         }
         stage('Deploy') {
