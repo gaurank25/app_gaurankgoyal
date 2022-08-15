@@ -18,7 +18,7 @@ pipeline {
         stage('Sonarqube Analysis') {
             steps {
                withSonarQubeEnv(installationName: 'Test_Sonar') {
-                         sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=sonar-gaurankgoyal'
+                         sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=sonar-gaurankgoyal -Dsonar.projectName=sonar-gaurankgoyal'
                        }
             }
         }
