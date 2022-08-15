@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
     		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+    		USERNAME="gaurankgoyal"
     	}
     tools {
         maven 'maven3'
@@ -11,9 +12,9 @@ pipeline {
             steps {
                echo "branch name- ${env.BRANCH_NAME}"
                sh 'mvn clean install'
-               sh "docker build -t gaurankgoyal25/i-gaurankgoyal-${env.BRANCH_NAME} ."
+               sh "docker build -t ${USERNAME}25/i-${USERNAME}-${env.BRANCH_NAME} ."
                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-               sh "docker push gaurankgoyal25/i-gaurankgoyal-${env.BRANCH_NAME}:latest"
+               sh "docker push ${USERNAME}25/i-${USERNAME}-${env.BRANCH_NAME}:latest"
             }
         }
         stage('Sonarqube Analysis') {
@@ -22,7 +23,7 @@ pipeline {
             }
             steps {
                withSonarQubeEnv(installationName: 'Test_Sonar') {
-                         sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=sonar-gaurankgoyal -Dsonar.projectName=sonar-gaurankgoyal'
+                         sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=sonar-${USERNAME} -Dsonar.projectName=sonar-${USERNAME}'
                        }
             }
         }
