@@ -9,8 +9,10 @@ pipeline {
     }
     stages {
         stage('Build') {
+            when {
+                branch "develop"
+            }
             steps {
-               echo "branch name- ${env.BRANCH_NAME}"
                sh 'mvn clean install'
                sh "docker build -t ${USERNAME}25/i-${USERNAME}-${env.BRANCH_NAME} ."
                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -39,6 +41,7 @@ pipeline {
         stage('Deploy') {
             steps {
                echo 'Deployed'
+               sh "kubectl get nodes"
             }
         }
     }
