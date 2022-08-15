@@ -17,7 +17,9 @@ pipeline {
         }
         stage('Sonarqube Analysis') {
             steps {
-               echo 'sonar analysis'
+               withSonarQubeEnv(installationName: 'Test_Sonar') {
+                         sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+                       }
             }
         }
     }
