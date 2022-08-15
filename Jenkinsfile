@@ -1,16 +1,12 @@
 pipeline {
-    agent {
-        docker { image 'node:16.13.1-alpine' }
+    agent any
+    tools {
+        maven 'maven3'
     }
     stages {
-        stage('Git Check Out') {
+        stage('Build') {
             steps {
-                echo 'hello'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'node --version'
+               sh 'mvn clean install'
             }
         }
     }
