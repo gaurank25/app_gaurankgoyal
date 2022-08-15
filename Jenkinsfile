@@ -16,10 +16,27 @@ pipeline {
             }
         }
         stage('Sonarqube Analysis') {
+            when {
+                branch "develop"
+            }
             steps {
                withSonarQubeEnv(installationName: 'Test_Sonar') {
                          sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=sonar-gaurankgoyal -Dsonar.projectName=sonar-gaurankgoyal'
                        }
+            }
+        }
+
+        stage('Test Case Execution') {
+            when {
+                branch "master"
+            }
+            steps {
+               echo "test case"
+            }
+        }
+        stage('Deploy') {
+            steps {
+               echo 'Deployed'
             }
         }
     }
