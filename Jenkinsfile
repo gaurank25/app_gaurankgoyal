@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                sh 'mvn clean install'
-               sh 'docker ps'
+               sh 'docker build -t gaurankgoyal25/i-gaurankgoyal-main .'
             }
         }
         stage('Sonarqube Analysis') {
