@@ -10,8 +10,8 @@ pipeline {
     stages {
         stage('Build') {
             when {
-                branch "develop"
-            }
+                    branch "develop"
+                }
             steps {
                sh 'mvn clean install'
                sh "docker build -t ${USERNAME}25/i-${USERNAME}-${env.BRANCH_NAME} ."
@@ -32,7 +32,7 @@ pipeline {
 
         stage('Test Case Execution') {
             when {
-                branch "master"
+                branch "develop"
             }
             steps {
                sh 'mvn test'
@@ -40,9 +40,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-               echo 'Deployed'
-               sh "kubectl apply -f ./Kubernetes/deployment.yaml"
-               sh "kubectl apply -f ./Kubernetes/service.yaml"
+               sh 'cat Kubernetes/configmap.yaml| sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
+               sh 'cat Kubernetes/deployment.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
+               sh 'cat Kubernetes/service.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
+               sh 'cat Kubernetes/secrets.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
             }
         }
     }

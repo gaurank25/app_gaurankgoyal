@@ -21,14 +21,6 @@
     </bean>
     <bean
             class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
-    <bean id="dbProperties"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <value>classpath:application.properties</value>
-            </list>
-        </property>
-    </bean>
     <mvc:resources mapping="/resources/**" location="/resources/"
                    cache-period="31556926" />
     <mvc:annotation-driven />
