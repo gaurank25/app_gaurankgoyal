@@ -23,9 +23,10 @@ public class FrontController {
 
     @RequestMapping(value="/",method=RequestMethod.GET)
     public String getHomePage(Model model){
-        String myPropValue = env.getProperty("myprop");
-        model.addAttribute("environment", myPropValue);
-        model.addAttribute("dbname", myPropValue);
+        String branchName = env.getProperty("branchName");
+        String dbname = env.getProperty("dbname");
+        model.addAttribute("environment", branchName);
+        model.addAttribute("dbname", dbname);
 //        model.addAttribute("dbname", dbname);
         return "/home";
     }

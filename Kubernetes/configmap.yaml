@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: application-config-file
+  namespace: kubernetes-cluster-gaurankgoyal
 data:
-  application.properties: |
-    myprop=dev
-    dbname=abc.demo.nagp.com
+  branchName: dev
+  dbname: demo.nagp.nagarro.com

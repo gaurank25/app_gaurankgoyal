@@ -118,7 +118,7 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <h5 class="modal-title" id="exampleModalLabel"> Environment Name:</h5>
+              <h5 class="modal-title" id="exampleModalLabel"> Branch Name:</h5>
             </div>
             <div class="col">
               ${environment}
