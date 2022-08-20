@@ -31,3 +31,13 @@ spec:
                 configMapKeyRef:
                   name: application-config-file
                   key:  branchName
+            - name: username
+              valueFrom:
+                secretKeyRef:
+                  name: application-secret
+                  key: username
+            - name: password
+              valueFrom:
+                secretKeyRef:
+                  name: application-secret
+                  key: password
