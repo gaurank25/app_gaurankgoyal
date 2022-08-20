@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-               sh "cat Kubernetes/configmap.yaml | envsubst | kubectl apply -f -"
+               sh 'cat Kubernetes/configmap.yaml| sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g"'
                sh "cat Kubernetes/deployment.yaml | envsubst | kubectl apply -f -"
                sh "cat Kubernetes/service.yaml | envsubst | kubectl apply -f -"
                sh "cat Kubernetes/secrets.yaml | envsubst | kubectl apply -f -"

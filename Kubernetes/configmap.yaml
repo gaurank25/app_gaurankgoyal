@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: application-config-${BRANCH_NAME}
+  name: application-config-{{BRANCH_NAME}}
   namespace: kubernetes-cluster-gaurankgoyal
 data:
-  branchName: ${BRANCH_NAME}
+  branchName: {{BRANCH_NAME}}
   dbname: demo.nagp.nagarro.com
