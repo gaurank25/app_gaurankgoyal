@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-gaurankgoyal
+  namespace: kubernetes-cluster-gaurankgoyal
+  labels:
+    app: app_gaurankgoyal
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: app_gaurankgoyal
+  template:
+    metadata:
+      labels:
+        app: app_gaurankgoyal
+    spec:
+      containers:
+        - name: nginx
+          image: gaurankgoyal25/i-gaurankgoyal-master:latest
+          ports:
+            - containerPort: 8080
