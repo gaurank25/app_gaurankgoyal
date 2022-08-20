@@ -16,6 +16,12 @@ spec:
         app: app_gaurankgoyal
     spec:
       containers:
+        - env:
+            - name: myprop
+              valueFrom:
+                configMapKeyRef:
+                  name: application-config-file
+                  key: myprop
         - name: nginx
           image: gaurankgoyal25/i-gaurankgoyal-master:latest
           ports:

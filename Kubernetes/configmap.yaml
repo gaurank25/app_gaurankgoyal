@@ -4,5 +4,5 @@ metadata:
   name: application-config-file
 data:
   application.properties: |
-    environment=dev
+    myprop=dev
     dbname=abc.demo.nagp.com
