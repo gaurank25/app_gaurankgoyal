@@ -21,8 +21,13 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: myprop
+            - name: dbname
               valueFrom:
                 configMapKeyRef:
                   name: application-config-file
-                  key: myprop
+                  key: dbname
+            - name: branchName
+              valueFrom:
+                configMapKeyRef:
+                  name: application-config-file
+                  key:  branchName
