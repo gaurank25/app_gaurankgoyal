@@ -41,7 +41,8 @@ pipeline {
         stage('Deploy') {
             steps {
                echo 'Deployed'
-               sh "kubectl get nodes"
+               sh "kubectl apply -f ./Kubernetes/deployment.yaml"
+               sh "kubectl apply -f ./Kubernetes/service.yaml"
             }
         }
     }
