@@ -76,7 +76,7 @@
 
 <main class="container">
   <div class="bg-light p-5 rounded">
-    <h1>NAGP Kubernetes Application</h1>
+    <h1>NAGP Kubernetes Application - ${environment}</h1>
     <p class="lead">This is an Demo Java Spring Based WebApp created as a part of NAGP Workshop. In order to view secret click on secret, to view properties click on property.</p>
     <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
       View App Properties &raquo;
@@ -139,6 +139,7 @@
       </div>
     </div>
   </div>
+</div>
 
 
 <!-- Modal -->
@@ -146,17 +147,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Secrets from Kubernetes Secrets</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="container">
           <div class="row">
             <div class="col">
-              <h5 class="modal-title" id="exampleModalLabel"> User Name:</h5>
+              <h5 class="modal-title" id="exampleModalLabel"> Username:</h5>
             </div>
             <div class="col">
-              ${environment}
+              ${username}
             </div>
           </div>
           <div class="row">
@@ -164,14 +165,13 @@
                 <h5 class="modal-title" id="exampleModalLabel"> Password:</h5>
               </div>
               <div class="col">
-                ${dbname}
+                ${password}
               </div>
             </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

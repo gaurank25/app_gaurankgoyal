@@ -12,12 +12,6 @@ import javax.annotation.Resource;
 @Controller
 public class FrontController {
 
-//    @Value("${environment}")
-//    String environment;
-//
-//    @Value("${dbname}")
-//    String dbname;
-
     @Resource
     private Environment env;
 
@@ -25,9 +19,12 @@ public class FrontController {
     public String getHomePage(Model model){
         String branchName = env.getProperty("branchName");
         String dbname = env.getProperty("dbname");
+        String username = env.getProperty("username");
+        String password = env.getProperty("password");
         model.addAttribute("environment", branchName);
         model.addAttribute("dbname", dbname);
-//        model.addAttribute("dbname", dbname);
+        model.addAttribute("password", password);
+        model.addAttribute("username", username);
         return "/home";
     }
 }
