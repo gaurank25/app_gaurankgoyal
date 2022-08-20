@@ -37,7 +37,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-               sh "kubectl apply -f ./Kubernetes/"
+               sh "cat Kubernetes/configmap.yaml | envsubst | kubectl apply -f -"
+               sh "cat Kubernetes/deployment.yaml | envsubst | kubectl apply -f -"
+               sh "cat Kubernetes/service.yaml | envsubst | kubectl apply -f -"
+               sh "cat Kubernetes/secrets.yaml | envsubst | kubectl apply -f -"
             }
         }
     }
