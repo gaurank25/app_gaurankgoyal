@@ -9,6 +9,9 @@ pipeline {
     }
     stages {
         stage('Build') {
+            when {
+                    branch "develop"
+                }
             steps {
                sh 'mvn clean install'
                sh "docker build -t ${USERNAME}25/i-${USERNAME}-${env.BRANCH_NAME} ."
@@ -29,7 +32,7 @@ pipeline {
 
         stage('Test Case Execution') {
             when {
-                branch "master"
+                branch "develop"
             }
             steps {
                sh 'mvn test'
