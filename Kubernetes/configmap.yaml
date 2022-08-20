@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: application-config-file
+data:
+  application.properties: |
+    environment=dev
+    dbname=abc.demo.nagp.com
