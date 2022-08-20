@@ -4,5 +4,5 @@ metadata:
   name: application-config-file
   namespace: kubernetes-cluster-gaurankgoyal
 data:
-  branchName: dev
+  branchName: master
   dbname: demo.nagp.nagarro.com
