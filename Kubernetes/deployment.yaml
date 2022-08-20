@@ -1,43 +1,43 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-gaurankgoyal-${BRANCH_NAME}
+  name: app-gaurankgoyal-{{BRANCH_NAME}}
   namespace: kubernetes-cluster-gaurankgoyal
   labels:
-    app: app_gaurankgoyal_${BRANCH_NAME}
+    app: app_gaurankgoyal_{{BRANCH_NAME}}
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: app_gaurankgoyal_${BRANCH_NAME}
+      app: app_gaurankgoyal_{{BRANCH_NAME}}
   template:
     metadata:
       labels:
-        app: app_gaurankgoyal_${BRANCH_NAME}
+        app: app_gaurankgoyal_{{BRANCH_NAME}}
     spec:
       containers:
         - name: nginx
-          image: gaurankgoyal25/i-gaurankgoyal-${BRANCH_NAME}:latest
+          image: gaurankgoyal25/i-gaurankgoyal-{{BRANCH_NAME}}:latest
           ports:
             - containerPort: 8080
           env:
             - name: dbname
               valueFrom:
                 configMapKeyRef:
-                  name: application-config-${BRANCH_NAME}
+                  name: application-config-{{BRANCH_NAME}}
                   key: dbname
             - name: branchName
               valueFrom:
                 configMapKeyRef:
-                  name: application-config-${BRANCH_NAME}
+                  name: application-config-{{BRANCH_NAME}}
                   key:  branchName
             - name: username
               valueFrom:
                 secretKeyRef:
-                  name: application-secret-${BRANCH_NAME}
+                  name: application-secret-{{BRANCH_NAME}}
                   key: username
             - name: password
               valueFrom:
                 secretKeyRef:
-                  name: application-secret-${BRANCH_NAME}
+                  name: application-secret-{{BRANCH_NAME}}
                   key: password
