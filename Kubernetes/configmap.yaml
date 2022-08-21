@@ -4,5 +4,5 @@ metadata:
   name: application-config-{{BRANCH_NAME}}
   namespace: kubernetes-cluster-gaurankgoyal
 data:
-  branchName: {{BRANCH_NAME}}
+  branchName: {{BRANCH_NAME}}  #{{BRANCH_NAME}} --> Place Holder which will be replaced by BranchName at run time to keep the code DRY
   dbname: demo.nagp.nagarro.com
