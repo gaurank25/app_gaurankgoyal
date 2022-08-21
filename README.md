@@ -63,6 +63,7 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 Gaurank Goyal
 
+Email Id: gaurank.goyal@nagarro.com
 Project Link: [https://github.com/gaurank25](https://github.com/gaurank25)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
