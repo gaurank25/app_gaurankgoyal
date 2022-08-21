@@ -22,7 +22,7 @@
 
 Web App Created as a part on NAGP Home Assignment. This web app takes the application properties and secret from configmap and kubernetes secrets and display them over the UI.
 
-
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
 ### Built With
@@ -71,7 +71,7 @@ Project Link: [https://github.com/gaurank25](https://github.com/gaurank25)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/Screenshot.png
 [kubernetes]: https://img.shields.io/badge/Kubernetes-000000?style=for-the-badge&logo=kubernetes&logoColor=white
 [kubernetes-url]: https://kubernetes.io/docs/home/
 [spring.mvc]: https://img.shields.io/badge/Spring-20232A?style=for-the-badge&logo=spring&logoColor=61DAFB
