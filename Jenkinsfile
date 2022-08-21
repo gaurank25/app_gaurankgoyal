@@ -41,7 +41,7 @@ pipeline {
                sh 'cat Kubernetes/deployment.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
                sh 'cat Kubernetes/service.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
                sh 'cat Kubernetes/secrets.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
-               sh 'export svc=`kubectl get svc lb-service-master -n kubernetes-cluster-gaurankgoyal -o jsonpath=\'{.status.loadBalancer}\'` | while [ $svc = \'{}\' ]; do echo ok; sleep 2; done'
+               sh 'while [ `kubectl get svc lb-service-master -n kubernetes-cluster-gaurankgoyal -o jsonpath=\'{.status.loadBalancer}\'` = \'{}\' ]; do echo ok; sleep 2; done'
                sh 'echo $svc'
                sh "svc=`kubectl get svc lb-service-master -n kubernetes-cluster-gaurankgoyal -o jsonpath='{.status.loadBalancer}'` | while [ $svc = '{}' ]; do svc=`kubectl get svc lb-service-master -n kubernetes-cluster-gaurankgoyal -o jsonpath='{.status.loadBalancer}'`; sleep 2; done"
                echo 'check if service is deployed and is ready to serve traffic'
