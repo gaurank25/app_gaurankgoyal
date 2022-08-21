@@ -43,7 +43,7 @@ pipeline {
                sh 'cat Kubernetes/secrets.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
                echo 'check if service is deployed and is ready to serve traffic'
                echo 'ALB Endpoint Endpoint'
-               echo 'https://`kubectl get svc lb-service-master -n kubernetes-cluster-gaurankgoyal -o jsonpath=\'{..ip}\'`'
+               sh 'echo "https://`kubectl get svc lb-service-master -n kubernetes-cluster-gaurankgoyal -o jsonpath=\'{..ip}\'`"'
             }
         }
     }
