@@ -5,7 +5,7 @@ pipeline {
     		USERNAME="gaurankgoyal"
     	}
     tools {
-        maven 'Maven3'
+        maven 'Maven3',
         sonar 'SonarQubeScanner'
     }
     stages {
