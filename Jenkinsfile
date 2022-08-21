@@ -38,6 +38,7 @@ pipeline {
         stage('Deploy') {
             steps {
                sh 'cat Kubernetes/configmap.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g"'
+               sh 'whoami'
                sh 'kubectl get nodes'
                sh 'cat Kubernetes/configmap.yaml| sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
                sh 'cat Kubernetes/deployment.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
