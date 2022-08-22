@@ -42,9 +42,9 @@ pipeline {
                sh 'cat Kubernetes/service.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
                sh 'cat Kubernetes/secrets.yaml | sed "s/{{BRANCH_NAME}}/$BRANCH_NAME/g" | kubectl apply -f -'
                echo 'check if service is deployed and is ready to serve traffic'
-               sh 'while [ `kubectl get svc lb-service-master -n kubernetes-cluster-gaurankgoyal -o jsonpath=\'{.status.loadBalancer}\'` = \'{}\' ]; do echo Service is Not Ready ..; sleep 2; done'
+               sh 'while [ `kubectl get svc lb-service-$BRANCH_NAME -n kubernetes-cluster-gaurankgoyal -o jsonpath=\'{.status.loadBalancer}\'` = \'{}\' ]; do echo Service is Not Ready ..; sleep 2; done'
                echo 'ALB Endpoint Endpoint'
-               sh 'echo "http://`kubectl get svc lb-service-master -n kubernetes-cluster-gaurankgoyal -o jsonpath=\'{..ip}\'`"/app_gaurankgoyal'
+               sh 'echo "http://`kubectl get svc lb-service-$BRANCH_NAME -n kubernetes-cluster-gaurankgoyal -o jsonpath=\'{..ip}\'`"/app_gaurankgoyal'
             }
         }
     }
