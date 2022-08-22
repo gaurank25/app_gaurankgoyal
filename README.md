@@ -36,10 +36,30 @@ Web App Created as a part on NAGP Home Assignment. This web app takes the applic
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
+<!-- Demo URLS -->
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+## Demo Links
+
+* Jenkins Url
+    ```
+  https://jenkins.nagp.tk/login?from=%2F
+  ```
+  
+    To Login to jenkins please use the below user id and password.
+    ```
+  Username: nagp-demo
+  Password: Password@#$
+  ```
+* SonarQube Url
+  ```
+  https://sonarqube.nagp.tk/
+  ```
+  
+    To Login to jenkins please use the below user id and password.
+    ```
+  Username: admin
+  Password: Password@#$
+  ```
 
 
 
